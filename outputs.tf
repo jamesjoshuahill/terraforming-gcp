@@ -116,6 +116,16 @@ output "isoseg_lb_backend_name" {
   value = "${module.isolation_segment.load_balancer_name}"
 }
 
+output "iso_seg_ssl_cert" {
+  sensitive = true
+  value     = "${module.isolation_segment.ssl_cert}"
+}
+
+output "iso_seg_ssl_private_key" {
+  sensitive = true
+  value     = "${module.isolation_segment.ssl_private_key}"
+}
+
 output "ws_router_pool" {
   value = "${google_compute_target_pool.cf-ws.name}"
 }
