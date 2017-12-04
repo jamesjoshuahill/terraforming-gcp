@@ -13,19 +13,19 @@ variable "region" {
 variable "management_cidr" {
   type = "string"
   description = "cidr for management subnet"
-  default     = "10.0.0.0/24"
+  default     = "10.0.12.0/24"
 }
 
 variable "pas_cidr" {
   type = "string"
   description = "cidr for pas subnet"
-  default     = "10.0.4.0/24"
+  default     = "10.0.16.0/24"
 }
 
 variable "services_cidr" {
   type = "string"
   description = "cidr for services subnet"
-  default     = "10.0.8.0/24"
+  default     = "10.0.20.0/24"
 }
 
 variable "zones" {
@@ -54,16 +54,6 @@ variable "service_account_key" {
 
 variable "dns_suffix" {
   type = "string"
-}
-
-variable "ssl_cert" {
-  type        = "string"
-  description = "ssl certificate content"
-}
-
-variable "ssl_private_key" {
-  type        = "string"
-  description = "ssl certificate private key content"
 }
 
 variable "external_database" {

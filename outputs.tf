@@ -54,10 +54,6 @@ output "network_name" {
   value = "${google_compute_network.pcf-network.name}"
 }
 
-output "sql_db_ip" {
-  value = "${module.external_database.ip}"
-}
-
 output "management_subnet_gateway" {
   value = "${google_compute_subnetwork.management-subnet.gateway_address}"
 }
@@ -68,10 +64,6 @@ output "management_subnet_cidrs" {
 
 output "management_subnet_name" {
   value = "${google_compute_subnetwork.management-subnet.name}"
-}
-
-output "opsman_sql_db_name" {
-  value = "${module.external_database.opsman_sql_db_name}"
 }
 
 output "pas_subnet_gateway" {
@@ -98,62 +90,8 @@ output "services_subnet_name" {
   value = "${google_compute_subnetwork.services-subnet.name}"
 }
 
-output "http_lb_backend_name" {
-  value = "${google_compute_backend_service.http_lb_backend_service.name}"
-}
-
-output "isoseg_lb_backend_name" {
-  value = "${module.isolation_segment.load_balancer_name}"
-}
-
-output "ws_router_pool" {
-  value = "${google_compute_target_pool.cf-ws.name}"
-}
-
-output "ssh_router_pool" {
-  value = "${google_compute_target_pool.cf-ssh.name}"
-}
-
-output "tcp_router_pool" {
-  value = "${google_compute_target_pool.cf-tcp.name}"
-}
-
-output "buildpacks_bucket" {
-  value = "${google_storage_bucket.buildpacks.name}"
-}
-
-output "droplets_bucket" {
-  value = "${google_storage_bucket.droplets.name}"
-}
-
-output "packages_bucket" {
-  value = "${google_storage_bucket.packages.name}"
-}
-
-output "resources_bucket" {
-  value = "${google_storage_bucket.resources.name}"
-}
-
 output "director_blobstore_bucket" {
   value = "${element(concat(google_storage_bucket.director.*.name, list("")), 0)}"
-}
-
-output "pas_sql_username" {
-  value = "${module.external_database.pas_sql_username}"
-}
-
-output "pas_sql_password" {
-  sensitive = true
-  value     = "${module.external_database.pas_sql_password}"
-}
-
-output "opsman_sql_username" {
-  value = "${module.external_database.opsman_sql_username}"
-}
-
-output "opsman_sql_password" {
-  sensitive = true
-  value     = "${module.external_database.opsman_sql_password}"
 }
 
 output "ops_manager_ssh_private_key" {
@@ -164,10 +102,6 @@ output "ops_manager_ssh_private_key" {
 output "ops_manager_ssh_public_key" {
   sensitive = true
   value     = "${format("ubuntu:%s", tls_private_key.ops-manager.public_key_openssh)}"
-}
-
-output "cf_ws_address" {
-  value = "${google_compute_address.cf-ws.address}"
 }
 
 output "dns_managed_zone" {
